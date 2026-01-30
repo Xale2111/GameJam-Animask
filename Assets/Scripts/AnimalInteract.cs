@@ -7,8 +7,15 @@ public class AnimalInteract : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            
+            Debug.Log("Player Entered Interact Area");
         }
-        
+    }
+    
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("Player Exited Interact Area");
+        }   
     }
 }
