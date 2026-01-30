@@ -2,24 +2,32 @@ using UnityEngine;
 
 public class Parallax : MonoBehaviour
 {
-    private static readonly int MainTex = Shader.PropertyToID("_MainTex");
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    
-    private Material _material;
-    private float _distance;
-    
-    [Range(0.0f, 0.5f)]
-    public float speed = 0.2f;
+    private float _startPos, length;
+    public GameObject cam;
+    [Range(0.0f, 1.0f)]
+    public float parallaxSpeed; //relative to camera, 0 means move with camera, 1 means no movement
     
     void Start()
     {
-        _material = GetComponent<MeshRenderer>().material;
+        _startPos = transform.position.x;
+        length = GetComponent<SpriteRenderer>().bounds.size.x;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        _distance += Time.deltaTime * speed;
-        _material.SetTextureOffset(MainTex, Vector2.right * _distance);
+        float distance = cam.transform.position.x * parallaxSpeed;
+        float movement = cam.transform.position.x * (1 -  parallaxSpeed);
+        
+        transform.position = new Vector3(_startPos + distance, transform.position.y, transform.position.z);
+
+        if (movement > _startPos + length)
+        {
+            _startPos += length;
+        }
+        else if (movement < _startPos - length)
+        {
+            _startPos -= length;
+        }
     }
 }
