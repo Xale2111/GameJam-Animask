@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Arrow
   - Food
+  - FoodItem
   layers:
   - Default
   - TransparentFX
@@ -13,10 +14,10 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Food
+  - PlayerBlocker
+  - FoodBlocker
   - 
   - 
   - 
@@ -48,6 +49,9 @@ TagManager:
     locked: 0
   - name: Ground
     uniqueID: 3969889491
+    locked: 0
+  - name: Interactible
+    uniqueID: 2451494247
     locked: 0
   - name: Player
     uniqueID: 741711073

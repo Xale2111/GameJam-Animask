@@ -247,8 +247,8 @@ MonoBehaviour:
   QTEPanel: {fileID: 859410960}
   arrowPrefab: {fileID: 2625138279863944759, guid: 639c09835b1290543864e03b0d656fdc, type: 3}
   spawnPoint: {fileID: 1635438141}
-  spawnSpeed: 3
-  arrowToWin: 10
+  spawnSpeed: 1
+  arrowToWin: 4
   arrowInputDetector: {fileID: 1070013493}
   arrows:
   - {fileID: 21300000, guid: 80206df917fac314d871e3c75e2ed013, type: 3}
@@ -257,7 +257,19 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 541cb001207599f4fa26629cac9ab889, type: 3}
   OnWinGame:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 203145555}
+        m_TargetAssemblyTypeName: HUDManager, Assembly-CSharp
+        m_MethodName: CancelGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &203145556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,7 +363,7 @@ GameObject:
   m_Component:
   - component: {fileID: 211125402}
   - component: {fileID: 211125403}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BottomGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -842,7 +854,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 741711073
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 1849078680271696764, guid: 413defc8c9a41cc4ca2c03c9232fcec6, type: 3}
@@ -940,7 +952,7 @@ GameObject:
   m_Component:
   - component: {fileID: 559924964}
   - component: {fileID: 559924965}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -982,7 +994,7 @@ MonoBehaviour:
   m_Intensity: 0
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000d71760edd3b49fece19c352cb92b24ca
+  m_ApplyToSortingLayers: 00000000d71760edd3b49fece19c352cb92b24ca67d51e92
   m_LightCookieSprite: {fileID: 21300000, guid: 119f93d0bcbf1e743bf5fcf237507d39, type: 3}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -1078,7 +1090,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -903599175
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 0c5fda3c785c2fd488a83b41d4b4ed6f, type: 3}
@@ -1133,7 +1145,7 @@ GameObject:
   m_Component:
   - component: {fileID: 566950580}
   - component: {fileID: 566950581}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TopGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1211,7 +1223,7 @@ GameObject:
   m_Component:
   - component: {fileID: 633940138}
   - component: {fileID: 633940139}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BrogleSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1279,7 +1291,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 741711073
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: e376aa301a1eef14896d53c28c342dfd, type: 3}
@@ -2281,6 +2293,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 566950580}
+  - {fileID: 1521345315}
   - {fileID: 211125402}
   m_Father: {fileID: 1063693583}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2410,7 +2423,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1330346240}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FollowTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2625,6 +2638,84 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1521345314
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1521345315}
+  - component: {fileID: 1521345316}
+  m_Layer: 9
+  m_Name: FoodGround
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1521345315
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521345314}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -2.4731398, z: 0}
+  m_LocalScale: {x: 1000, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1260809349}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1521345316
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521345314}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1613553223
 GameObject:
   m_ObjectHideFlags: 0
@@ -2704,7 +2795,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -903599175
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_MaskInteraction: 0
   m_RenderMode: 0
@@ -7580,7 +7671,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -903599175
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 0c5fda3c785c2fd488a83b41d4b4ed6f, type: 3}
@@ -7853,7 +7944,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000d71760edd3b49fece19c352cb92b24ca
+  m_ApplyToSortingLayers: 00000000d71760edd3b49fece19c352cb92b24ca67d51e92
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -8054,7 +8145,7 @@ GameObject:
   - component: {fileID: 1827520144}
   - component: {fileID: 1827520149}
   - component: {fileID: 1827520150}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "JOUEUR \xE0 roues"
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -8607,6 +8698,59 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &1915137331
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1915137333}
+  - component: {fileID: 1915137332}
+  m_Layer: 0
+  m_Name: FoodManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1915137332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915137331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf41f7e96de4ae442bf43d0d7441b4a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FoodManager
+  spawnPoint: {fileID: 2037205670}
+  foodPrefab: {fileID: 7084815269445057170, guid: 0a2d43f30bf620d4198a67fc6f45ddb9, type: 3}
+  foodSprites:
+  - {fileID: -4348666146115371753, guid: 743ed65134793a34aa3d6389368218a7, type: 3}
+  - {fileID: 1849078680271696764, guid: 413defc8c9a41cc4ca2c03c9232fcec6, type: 3}
+  - {fileID: -4348666146115371753, guid: 743ed65134793a34aa3d6389368218a7, type: 3}
+  - {fileID: 1849078680271696764, guid: 413defc8c9a41cc4ca2c03c9232fcec6, type: 3}
+  spawnUpForce: 3
+  activate: 0
+--- !u!4 &1915137333
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915137331}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -31, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2037205668
 GameObject:
   m_ObjectHideFlags: 0
@@ -8747,7 +8891,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 741711073
+  m_SortingLayerID: -1843473049
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
@@ -8871,7 +9015,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -903599175
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 0c5fda3c785c2fd488a83b41d4b4ed6f, type: 3}
@@ -9078,3 +9222,4 @@ SceneRoots:
   - {fileID: 1672594581}
   - {fileID: 314463677}
   - {fileID: 2037205670}
+  - {fileID: 1915137333}
