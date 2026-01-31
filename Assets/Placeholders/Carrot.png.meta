@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b428760f4fdf5a149be3de8fe95d641c
+guid: 1c735c3975d31254496bf44c6bf31ea7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2171502405964204157
-    second: Decors Sapin Fond_0
+      213: -5859083586626064994
+    second: Carrot_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Decors Sapin Fond_0
+      name: Carrot_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1920
-        height: 1080
+        x: 86
+        y: 38
+        width: 297
+        height: 474
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 387f89f11164dd1e0800000000000000
-      internalID: -2171502405964204157
+      spriteID: e9de4dd458a50bea0800000000000000
+      internalID: -5859083586626064994
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Decors Sapin Fond_0: -2171502405964204157
+      Carrot_0: -5859083586626064994
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

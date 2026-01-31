@@ -1,17 +1,18 @@
 using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class FoodManager : MonoBehaviour
 {
     
-    public enum Foods { Berry, Honey, Length }
     
-    [SerializeField] private Transform spawnPoint;
-    [SerializeField] private GameObject foodPrefab;
+    [SerializeField] private GameObject[] foodGamePrefab;
+    [SerializeField] private GameObject foodObjectPrefab;
     [SerializeField] private Sprite[] foodSprites;
     private int currentFoodIndex = 0;
     
     [SerializeField] private float spawnUpForce = 3f;
+
     [SerializeField] private bool activate;
     
     
@@ -27,14 +28,19 @@ public class FoodManager : MonoBehaviour
         if (activate)
         {
             CreateFood();
-        }   
+            activate = false;
+        }
     }
 
     void CreateFood()
     {
-        GameObject newFood = Instantiate(foodPrefab, spawnPoint.position, foodPrefab.transform.rotation);
-        newFood.GetComponent<SpriteRenderer>().sprite = foodSprites[currentFoodIndex];
-        currentFoodIndex = (currentFoodIndex + 1) % foodSprites.Length;
+        float random = Random.Range(-15f, 15f);
+
+        Quaternion rotation = Quaternion.Euler(0f, 0f, random);
+
+        GameObject newFood = Instantiate(foodObjectPrefab, foodGamePrefab[currentFoodIndex % foodGamePrefab.Length].transform.position, rotation);
+        newFood.GetComponent<SpriteRenderer>().sprite = foodSprites[currentFoodIndex % foodSprites.Length];
+        currentFoodIndex = currentFoodIndex + 1;
         
         Rigidbody2D rb = newFood.GetComponent<Rigidbody2D>();
 
@@ -42,7 +48,5 @@ public class FoodManager : MonoBehaviour
         {
             rb.AddForce(Vector2.up * spawnUpForce, ForceMode2D.Impulse);
         }
-
-        activate = false;
     }
 }
