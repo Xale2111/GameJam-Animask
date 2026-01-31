@@ -30,7 +30,7 @@
                     "id": "1b27bd7e-ba80-45d4-b4a6-e3b3675c054e",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "Tap",
+                    "interactions": "",
                     "initialStateCheck": false
                 },
                 {
@@ -184,10 +184,21 @@
                 {
                     "name": "",
                     "id": "1d89eb5d-5dfa-4723-a38e-ec7104883d16",
-                    "path": "<Mouse>/rightButton",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
+                    "action": "CloseEyes",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "21d215cc-e8d2-430f-b03d-7b4417bf768e",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
                     "action": "CloseEyes",
                     "isComposite": false,
                     "isPartOfComposite": false

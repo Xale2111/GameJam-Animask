@@ -627,12 +627,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82070f8bcf4ee774e9b275790e89c399, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  playerController: {fileID: 1827520144}
   player: {fileID: 1827520143}
   spawnPoint: {fileID: 1819807841}
-  fearSlider: {fileID: 1205068066}
   maxFear: 10
+  fearSlider: {fileID: 1205068066}
   isGainingFear: 0
-  particleSystem: {fileID: 1613553226}
+  sparkleParticles: {fileID: 1613553226}
   globalLight: {fileID: 1744730430}
   playerLight: {fileID: 559924965}
   normalGlobalIntensity: 1
@@ -1959,9 +1960,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 10
   m_WholeNumbers: 0
-  m_Value: 100
+  m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1998,7 +1999,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineFollow
   TrackerSettings:
     BindingMode: 4
-    PositionDamping: {x: 1, y: 1, z: 0}
+    PositionDamping: {x: 0, y: 0, z: 0}
     AngularDampingMode: 0
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
@@ -2319,12 +2320,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82070f8bcf4ee774e9b275790e89c399, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FearGauge
+  playerController: {fileID: 0}
   player: {fileID: 0}
   spawnPoint: {fileID: 0}
-  fearSlider: {fileID: 0}
   maxFear: 10
+  fearSlider: {fileID: 0}
   isGainingFear: 0
-  particleSystem: {fileID: 0}
+  sparkleParticles: {fileID: 0}
   globalLight: {fileID: 0}
   playerLight: {fileID: 0}
   normalGlobalIntensity: 1
@@ -2467,7 +2469,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 1
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:

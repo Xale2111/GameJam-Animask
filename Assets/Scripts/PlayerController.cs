@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     
     private Vector2 _mov;
     
+    private bool _canMove = true;
+    
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -19,6 +21,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (!_canMove) return;
+        
         _rb.linearVelocity = _mov.normalized * speed;
 
         if (_mov.x < 0)
@@ -35,10 +39,10 @@ public class PlayerController : MonoBehaviour
     {
         _mov = context.ReadValue<Vector2>();
     }
-
-    public void OnToggleEyes(InputAction.CallbackContext context)
+    
+    public void SetCanMove(bool canMove)
     {
-        
+        _canMove = canMove;
     }
 
 }

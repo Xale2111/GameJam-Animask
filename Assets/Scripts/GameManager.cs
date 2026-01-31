@@ -7,18 +7,19 @@ using UnityEngine.Rendering.Universal;
 public class GameManager : MonoBehaviour
 {
     [Header("Player")] 
+    [SerializeField] private PlayerController playerController;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject spawnPoint;
     
     [Header("Fear Gauge")]
-    [SerializeField] private Slider fearSlider;
     [SerializeField] private float maxFear = 10.0f;
+    [SerializeField] private Slider fearSlider;
     private float _currentFear = 0.0f;
     public bool isGainingFear = false;
     
     //Closing/Opening Eyes
     [Header("Closing Eyes Mechanic")]
-    [SerializeField] private ParticleSystem particleSystem;
+    [SerializeField] private ParticleSystem sparkleParticles;
     [SerializeField] private Light2D globalLight;   // Global Light 2D
     [SerializeField] private Light2D playerLight;   // Point Light 2D on player
     [SerializeField] private float normalGlobalIntensity = 1.0f;
@@ -42,8 +43,6 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        particleSystem.Stop();
-        fearSlider.maxValue = maxFear;
     }
 
     // Update is called once per frame
@@ -62,10 +61,10 @@ public class GameManager : MonoBehaviour
 
     private void CheckFear()
     {
-        if (!(_currentFear >= maxFear)) return;
-        //TODO DIE POTATO, Fade out or smth
-        _currentFear = 0.0f;
-        player.transform.position = spawnPoint.transform.position;
+        if (_currentFear < maxFear) return;
+        if (_isTransitionRunning) return;
+        
+        StartSequence(ReturnToSpawnRoutine());
     }
     
     public void GainMaxFear(int value)
@@ -86,18 +85,18 @@ public class GameManager : MonoBehaviour
         isGainingFear = value;
     }
 
-    public void ToggleParticleSystem()
+    private void ToggleParticleSystem()
     {
         _isParticleSystemRunning = !_isParticleSystemRunning;
         if (_isParticleSystemRunning)
         {
             // Start Particle System
-            particleSystem.Play();
+            sparkleParticles.Play();
         }
         else
         {
             // Stop Particle System
-            particleSystem.Stop();
+            sparkleParticles.Stop();
         }
     }
     
@@ -118,8 +117,16 @@ public class GameManager : MonoBehaviour
         StartSequence(_eyesClosed ? CloseEyesRoutine() : OpenEyesRoutine());
     }
 
+    public bool GetIsEyesClosed()
+    {
+        return _eyesClosed;
+    }
+
     private void StartSequence(IEnumerator routine)
     {
+        if (_sequence != null)
+            StopCoroutine(_sequence);
+
         _sequence = StartCoroutine(SequenceWrapper(routine));
     }
     
@@ -135,6 +142,8 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator CloseEyesRoutine()
     {
+        playerController.SetCanMove(false);
+        
         // Fade whole screne to black
         yield return FadeLight(globalLight, globalLight.intensity, darkGlobalIntensity, fadeToBlackTime);
         
@@ -147,6 +156,8 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator OpenEyesRoutine()
     {
+        playerController.SetCanMove(true);
+        
         // Remove Circle
         yield return FadeLight(playerLight, playerLight.intensity, normalPlayerIntensity, fadeCircleOutTime);
         
@@ -155,6 +166,48 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(globalDelayAfterCircleOff);
 
         yield return FadeLight(globalLight, globalLight.intensity, normalGlobalIntensity, fadeBackToNormalTime);
+    }
+    
+    private IEnumerator ReturnToSpawnRoutine()
+    {
+        playerController.SetCanMove(false);
+        isGainingFear = false;
+        _eyesClosed = false;
+        
+        if (_isParticleSystemRunning)
+        {
+            ToggleParticleSystem();
+        }
+        
+        // Fade Player Light to black
+        yield return FadeLight(playerLight, playerLight.intensity, 0f, fadeCircleOutTime);
+
+        // Fade Global Light to black
+        yield return FadeLight(globalLight, globalLight.intensity, 0f, fadeToBlackTime);
+
+        playerLight.intensity = 0f;
+        globalLight.intensity = 0f;
+
+        // Teleport while dark
+        player.transform.position = spawnPoint.transform.position;
+
+        // Reset fear
+        _currentFear = 0f;
+        fearSlider.value = _currentFear;
+        //TODO hide slider
+
+        yield return new WaitForSeconds(0.05f);
+
+        // Restore normal lighting
+        yield return FadeLight(playerLight, playerLight.intensity, normalPlayerIntensity, fadeCircleOutTime);
+
+        if (globalDelayAfterCircleOff > 0f)
+            yield return new WaitForSeconds(globalDelayAfterCircleOff);
+
+        yield return FadeLight(globalLight, globalLight.intensity, normalGlobalIntensity, fadeBackToNormalTime);
+        
+        
+        playerController.SetCanMove(true);
     }
 
     private static IEnumerator FadeLight(Light2D light, float currentIntensity, float intensityGoal, float duration)
