@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 2b1bb319b5223c946885b1180443b45c
+guid: 45955d67b1689044a96a872cc7444224
 TextureImporter:
   internalIDToNameTable:
   - first:
       213: -7717614447329621332
     second: Decors Sapin 2_0
+  - first:
+      213: 4049390348790609763
+    second: Decors Sapin 2_1
+  - first:
+      213: -1109557761917698482
+    second: Decors Sapin 2_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 50
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,7 +81,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -104,9 +110,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 272
-        width: 1920
-        height: 808
+        y: 285
+        width: 946
+        height: 795
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,6 +123,50 @@ TextureImporter:
       bones: []
       spriteID: caace71cc8685e490800000000000000
       internalID: -7717614447329621332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decors Sapin 2_1
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 301
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3673f805113523830800000000000000
+      internalID: 4049390348790609763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decors Sapin 2_2
+      rect:
+        serializedVersion: 2
+        x: 996
+        y: 272
+        width: 924
+        height: 808
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4e3e1f181f0a90f0800000000000000
+      internalID: -1109557761917698482
       vertices: []
       indices: 
       edges: []
@@ -136,6 +186,8 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Decors Sapin 2_0: -7717614447329621332
+      Decors Sapin 2_1: 4049390348790609763
+      Decors Sapin 2_2: -1109557761917698482
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

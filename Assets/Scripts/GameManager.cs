@@ -265,4 +265,11 @@ public class GameManager : MonoBehaviour
         }
         light.intensity = intensityGoal;
     }
+
+    public void OpenEyes()
+    {
+        ToggleParticleSystem();
+        _eyesClosed = !_eyesClosed;
+        StartSequence(_eyesClosed ? CloseEyesRoutine() : OpenEyesRoutine());
+    }
 }

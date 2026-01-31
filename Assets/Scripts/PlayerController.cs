@@ -46,7 +46,16 @@ public class PlayerController : MonoBehaviour
             _rb.linearVelocity = Vector2.zero;
             _animator.SetFloat("AbsVelocity", 0);
         }
-        
+
+        if (gameManager.GetIsEyesClosed())
+        {
+            _animator.SetBool("Masking", true);
+        }
+        else
+        {
+            _animator.SetBool("Masking", false);
+        }
+
     }
 
     public void OnMove(InputAction.CallbackContext context)
