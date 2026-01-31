@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rb;
     SpriteRenderer _spriteRenderer;
     
-    private float _xMov;
+    private Vector2 _mov;
     
     private void Start()
     {
@@ -19,13 +19,13 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        _rb.linearVelocity = new Vector2(_xMov * speed, _rb.linearVelocity.y);
+        _rb.linearVelocity = _mov.normalized * speed;
 
-        if (_xMov < 0)
+        if (_mov.x < 0)
         {
             _spriteRenderer.flipX = true;
         }
-        else if(_xMov > 0)
+        else if(_mov.x > 0)
         {
             _spriteRenderer.flipX = false;
         }
@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        _xMov = context.ReadValue<Vector2>().x;
+        _mov = context.ReadValue<Vector2>();
     }
 
 }
