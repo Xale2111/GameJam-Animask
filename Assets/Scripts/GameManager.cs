@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
 
     private void UpdateFearLogic()
     {
-        if (!isGainingFear)
+        if (!isGainingFear || _eyesClosed)
         {
             return;
         }
