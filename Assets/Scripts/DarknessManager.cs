@@ -24,24 +24,38 @@ public class DarknessController : MonoBehaviour
 
     private bool _eyesClosed;
     private Coroutine _sequence;
+    private bool _isTransitionRunning;
 
     public void OnCloseEyes(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (!context.performed)
+        {
+            return;
+        }
+
+        if (_isTransitionRunning)
         {
             return;
         }
 
         _eyesClosed = !_eyesClosed;
-        
         StartSequence(_eyesClosed ? CloseEyesRoutine() : OpenEyesRoutine());
     }
 
     private void StartSequence(IEnumerator routine)
     {
-        if (_sequence != null) StopCoroutine(_sequence);
-        _sequence = StartCoroutine(routine);
+        _sequence = StartCoroutine(SequenceWrapper(routine));
     }
+    
+    private IEnumerator SequenceWrapper(IEnumerator routine)
+    {
+        _isTransitionRunning = true;
+
+        yield return StartCoroutine(routine);
+
+        _isTransitionRunning = false;
+    }
+
 
     private IEnumerator CloseEyesRoutine()
     {
