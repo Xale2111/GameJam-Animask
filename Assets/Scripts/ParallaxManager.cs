@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Parallax : MonoBehaviour
+public class ParallaxManager : MonoBehaviour
 {
     private float _startPos, length;
     public GameObject cam;
