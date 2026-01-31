@@ -14,6 +14,10 @@ public class GameManager : MonoBehaviour
     [Header("Fear Gauge")]
     [SerializeField] private float maxFear = 10.0f;
     [SerializeField] private Slider fearSlider;
+    [SerializeField] private CanvasGroup fearCanvasGroup;
+    [SerializeField] private Image fearFill;
+    private float _fillAlphaMin = 0.25f;
+    private float _fillAlphaMax = 1.0f;
     private float _currentFear = 0.0f;
     public bool isGainingFear = false;
     
@@ -48,15 +52,47 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateFear();
+        UpdateFearLogic();
+        UpdateFearUI();
     }
 
-    private void UpdateFear()
+    private void UpdateFearLogic()
     {
-        if (!isGainingFear) return;
+        if (!isGainingFear)
+        {
+            return;
+        }
         _currentFear += Time.deltaTime;
         fearSlider.value = _currentFear;
+        
         CheckFear();
+    }
+
+    private void UpdateFearUI()
+    {
+        // Visible when gaining fear or eyes are closed
+        bool shouldShow = isGainingFear || _eyesClosed;
+
+        // Invisible otherwise
+        fearCanvasGroup.alpha = shouldShow ? 1f : 0f;
+
+        if (!shouldShow) return;
+
+        // Normalized fear 0..1
+        float t = _currentFear / maxFear;
+
+
+        // Fill: alpha ramps with fear amount
+        float fillA = Mathf.Lerp(_fillAlphaMin, _fillAlphaMax, t);
+        SetImageAlpha(fearFill, fillA);
+    }
+    
+    private static void SetImageAlpha(Image img, float a)
+    {
+        if (!img) return;
+        var c = img.color;
+        c.a = a;
+        img.color = c;
     }
 
     private void CheckFear()
@@ -194,7 +230,6 @@ public class GameManager : MonoBehaviour
         // Reset fear
         _currentFear = 0f;
         fearSlider.value = _currentFear;
-        //TODO hide slider
 
         yield return new WaitForSeconds(0.05f);
 

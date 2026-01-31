@@ -466,7 +466,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.11372548, g: 0.47585505, b: 0.79607844, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -632,6 +632,8 @@ MonoBehaviour:
   spawnPoint: {fileID: 1819807841}
   maxFear: 10
   fearSlider: {fileID: 1205068066}
+  fearCanvasGroup: {fileID: 1205068067}
+  fearFill: {fileID: 1870762059}
   isGainingFear: 0
   sparkleParticles: {fileID: 1613553226}
   globalLight: {fileID: 1744730430}
@@ -781,7 +783,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 38ae86b54b342b34b8e7792b07737ba0, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -941,7 +943,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.29411766}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1094,7 +1096,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1887,6 +1889,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1205068065}
   - component: {fileID: 1205068066}
+  - component: {fileID: 1205068067}
   m_Layer: 5
   m_Name: FearGauge
   m_TagString: Untagged
@@ -1962,10 +1965,22 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 10
   m_WholeNumbers: 0
-  m_Value: 10
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!225 &1205068067
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205068064}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1300007293
 GameObject:
   m_ObjectHideFlags: 0
@@ -2217,7 +2232,6 @@ GameObject:
   - component: {fileID: 1438353365}
   - component: {fileID: 1438353364}
   - component: {fileID: 1438353363}
-  - component: {fileID: 1438353367}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -2308,37 +2322,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1438353367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1438353362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82070f8bcf4ee774e9b275790e89c399, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FearGauge
-  playerController: {fileID: 0}
-  player: {fileID: 0}
-  spawnPoint: {fileID: 0}
-  maxFear: 10
-  fearSlider: {fileID: 0}
-  isGainingFear: 0
-  sparkleParticles: {fileID: 0}
-  globalLight: {fileID: 0}
-  playerLight: {fileID: 0}
-  normalGlobalIntensity: 1
-  darkGlobalIntensity: 0
-  normalPlayerIntensity: 0
-  darkPlayerIntensity: 1
-  fadeToBlackTime: 0.25
-  fadeCircleInTime: 0.2
-  fadeCircleOutTime: 0.15
-  fadeBackToNormalTime: 0.25
-  circleDelayAfterBlack: 0.1
-  globalDelayAfterCircleOff: 0.1
 --- !u!1 &1613553223
 GameObject:
   m_ObjectHideFlags: 0
@@ -7274,7 +7257,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7769,7 +7752,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 38ae86b54b342b34b8e7792b07737ba0, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -8363,7 +8346,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
