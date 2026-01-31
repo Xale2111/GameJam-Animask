@@ -1,3 +1,4 @@
+using System;
 using Unity.Cinemachine;
 using UnityEngine;
 
@@ -6,6 +7,11 @@ public class CenterCamera : MonoBehaviour
     [SerializeField] private CinemachineCamera baseAreaCamera;
     [SerializeField] private CinemachineCamera playerCamera;
 
+
+    private void Start()
+    {
+        baseAreaCamera.Priority = 10;
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {

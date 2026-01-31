@@ -7,6 +7,8 @@ public class ParallaxManager : MonoBehaviour
     [Range(0.0f, 1.0f)]
     public float parallaxSpeed; //relative to camera, 0 means move with camera, 1 means no movement
     
+    [SerializeField] bool isFixed = false;
+    
     void Start()
     {
         _startPos = transform.position.x;
@@ -21,13 +23,16 @@ public class ParallaxManager : MonoBehaviour
         
         transform.position = new Vector3(_startPos + distance, transform.position.y, transform.position.z);
 
-        if (movement > _startPos + length)
+        if (!isFixed)
         {
-            _startPos += length;
-        }
-        else if (movement < _startPos - length)
-        {
-            _startPos -= length;
+            if (movement > _startPos + length)
+            {
+                _startPos += length;
+            }
+            else if (movement < _startPos - length)
+            {
+                _startPos -= length;
+            }
         }
     }
 }

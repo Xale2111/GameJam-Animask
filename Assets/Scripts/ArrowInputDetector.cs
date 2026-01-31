@@ -19,6 +19,8 @@ public class ArrowInputDetector : MonoBehaviour
 
     private bool _successed;
 
+    private int _failedCounter = 0;
+
     private void Update()
     {
         if (_canPress)
@@ -67,6 +69,7 @@ public class ArrowInputDetector : MonoBehaviour
 
     private void InputFailed()
     {
+        _failedCounter++;
         Destroy(_arrowGO.gameObject);
     }
 
@@ -101,6 +104,15 @@ public class ArrowInputDetector : MonoBehaviour
         {
             _lastDirectionPressed = ArrowDirection.Right; 
         }
+    }
+    
+    public int GetFailedCounter()
+    {
+        return _failedCounter;
+    }
 
+    public int ResetFailedCounter()
+    {
+        return _failedCounter = 0;
     }
 }
