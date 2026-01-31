@@ -36,4 +36,9 @@ public class PlayerController : MonoBehaviour
         _mov = context.ReadValue<Vector2>();
     }
 
+    public void OnToggleEyes(InputAction.CallbackContext context)
+    {
+        
+    }
+
 }
