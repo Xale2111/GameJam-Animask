@@ -762,7 +762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67dc5789f5eade64e9a115f9b52b561a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ParallaxManager
-  cam: {fileID: 342935982}
+  mainCamera: {fileID: 0}
   parallaxSpeed: 0.5
   isFixed: 1
 --- !u!212 &464182292
@@ -1089,7 +1089,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67dc5789f5eade64e9a115f9b52b561a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ParallaxManager
-  cam: {fileID: 342935982}
+  mainCamera: {fileID: 0}
   parallaxSpeed: 0.25
   isFixed: 0
 --- !u!114 &563561152 stripped
@@ -1302,7 +1302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67dc5789f5eade64e9a115f9b52b561a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ParallaxManager
-  cam: {fileID: 342935982}
+  mainCamera: {fileID: 0}
   parallaxSpeed: 0.5
   isFixed: 0
 --- !u!212 &637098891
@@ -1733,7 +1733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67dc5789f5eade64e9a115f9b52b561a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ParallaxManager
-  cam: {fileID: 342935982}
+  mainCamera: {fileID: 0}
   parallaxSpeed: 0.5
   isFixed: 0
 --- !u!212 &923139323
@@ -2476,7 +2476,7 @@ PrefabInstance:
       objectReference: {fileID: 372648147}
     - target: {fileID: 3722192430425844523, guid: 51e546341c8a6a94892a14df53452ae9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.48
+      value: -27.09
       objectReference: {fileID: 0}
     - target: {fileID: 3722192430425844523, guid: 51e546341c8a6a94892a14df53452ae9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8085,7 +8085,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67dc5789f5eade64e9a115f9b52b561a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ParallaxManager
-  cam: {fileID: 342935982}
+  mainCamera: {fileID: 0}
   parallaxSpeed: 0.8
   isFixed: 0
 --- !u!1 &1819807841

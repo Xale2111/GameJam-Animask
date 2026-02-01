@@ -23,6 +23,7 @@ public class HUDManager : MonoBehaviour
     private float _spawnDelay;
 
     private bool _inGame = false;
+    private bool _hasWon = false;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -78,10 +79,11 @@ public class HUDManager : MonoBehaviour
         if (arrowInputDetector.GetFailedCounter() <= 0)
         {
             OnWinGame.Invoke();
+            ResetGame();
+            _hasWon = true;
         }
         
-        OnEndGameEvent.Invoke();    
-        
+        OnEndGameEvent.Invoke();  
     }
     
     public void CancelGame()
@@ -93,8 +95,11 @@ public class HUDManager : MonoBehaviour
 
     public void StartGame()
     {
-        QTEPanel.SetActive(true);
-        _inGame = true;
+        if (!_hasWon)
+        {
+            QTEPanel.SetActive(true);
+            _inGame = true;
+        }
     }
     
     

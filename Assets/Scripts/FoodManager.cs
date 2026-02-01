@@ -48,6 +48,7 @@ public class FoodManager : MonoBehaviour
         newFood.GetComponent<SpriteRenderer>().sprite = foodSprites[idx];
         _currentFoodIndex = _currentFoodIndex + 1;
         
+        
         Rigidbody2D rb = newFood.GetComponent<Rigidbody2D>();
 
         if (rb != null)
