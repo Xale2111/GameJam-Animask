@@ -97,6 +97,7 @@ public class PlayerController : MonoBehaviour
         {
             gameManager.SetCanCloseEyes(false);
             gameManager.SetIsGainingFear(false);
+            gameManager.ResetFear();
         }
         
         if (other.CompareTag("FoodItem"))
@@ -113,6 +114,7 @@ public class PlayerController : MonoBehaviour
                 _animator.SetTrigger("Give");
                 gameManager.SetHasItem(false);
                 gameManager.GainMaxFear(15);
+                gameManager.NextAnimal(1);
                 foodManager.ActivateNextSpot();
             }
         }
@@ -125,6 +127,7 @@ public class PlayerController : MonoBehaviour
                 _animator.SetTrigger("Give");
                 gameManager.SetHasItem(false);
                 gameManager.GainMaxFear(40);
+                gameManager.NextAnimal(2);
                 foodManager.ActivateNextSpot();
             }
         }
@@ -137,6 +140,7 @@ public class PlayerController : MonoBehaviour
                 _animator.SetTrigger("Give");
                 gameManager.SetHasItem(false);
                 gameManager.GainMaxFear(10);
+                gameManager.NextAnimal(3);
                 foodManager.ActivateNextSpot();
             }
         }
@@ -149,6 +153,7 @@ public class PlayerController : MonoBehaviour
                 _animator.SetTrigger("Give");
                 gameManager.SetHasItem(false);
                 gameManager.GainMaxFear(50);
+                gameManager.NextAnimal(4);
                 foodManager.ActivateNextSpot();
             }
         }
@@ -172,6 +177,7 @@ public class PlayerController : MonoBehaviour
         {
             gameManager.SetCanCloseEyes(true);
             gameManager.SetIsGainingFear(true);
+            gameManager.ResetFear();
         }
         
         if (other.CompareTag("FoodItem"))

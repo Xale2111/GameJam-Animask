@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject spawnPoint;
     
     [Header("Fear Gauge")]
-    [SerializeField] private float maxFear = 10.0f;
+    [SerializeField] private float maxFear = 45.0f;
     [SerializeField] private Slider fearSlider;
     [SerializeField] private CanvasGroup fearCanvasGroup;
     [SerializeField] private Image fearFill;
@@ -52,9 +52,10 @@ public class GameManager : MonoBehaviour
     
     // Animals & Progress
     [Header("Animals & Progress")]
-    private int _currentAnimalID;
+    [SerializeField] private int _currentAnimalID;
     [SerializeField] private int _heldItemID = -1;
     [SerializeField] private bool _hasItem;
+    [SerializeField] private AnimalInteract[] _animals;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -68,6 +69,23 @@ public class GameManager : MonoBehaviour
         UpdateFearLogic();
         UpdateFearUI();
     }
+
+    public void NextAnimal(int id)
+    {
+        foreach (var animal in _animals)
+        {
+            if (animal.GetAnimalID() == id)
+            {
+                animal.SetActiveAnimal();
+            }
+        }
+    }
+
+    public void ResetFear()
+    {
+        _currentFear = 0;
+    }
+    
 
     private void UpdateFearLogic()
     {
