@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ae9921ebef4249d4cb92b9c4e831e3ae
+guid: e21ccd12b0cb7f343bac21051baf03c4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4124240867030020018
-    second: Ruche_0
+      213: -9017943157800807368
+    second: Miel_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ruche_0
+      name: Miel_0
       rect:
         serializedVersion: 2
-        x: 469
-        y: 410
-        width: 143
-        height: 260
+        x: 350
+        y: 326
+        width: 380
+        height: 427
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2bf2977a73f3c3930800000000000000
-      internalID: 4124240867030020018
+      spriteID: 8345e922a74d9d280800000000000000
+      internalID: -9017943157800807368
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Ruche_0: 4124240867030020018
+      Miel_0: -9017943157800807368
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

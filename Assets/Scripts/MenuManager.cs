@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class MenuManager : MonoBehaviour
 {
     [SerializeField] private Button[] buttons;
+    [SerializeField] private GameObject pauseMenu;
     
     [SerializeField] private float navigationDelay = 0.3f;
     
@@ -17,6 +18,7 @@ public class MenuManager : MonoBehaviour
     public void OnMenuClick()
     {
         SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1;
     }
     
     public void OnQuitClick()
@@ -27,11 +29,13 @@ public class MenuManager : MonoBehaviour
     public void OnPlayClick()
     {
         SceneManager.LoadScene("FinalScene");
+        Time.timeScale = 1;
     }
 
     public void OnCreditsClick()
     {
         SceneManager.LoadScene("Credits");
+        Time.timeScale = 1;
     }
 
     private void Update()
@@ -39,7 +43,7 @@ public class MenuManager : MonoBehaviour
         lastNavigationTime += Time.unscaledDeltaTime;
     }
 
-    // ... existing code ...
+    
     public void OnNavigateMenu(InputAction.CallbackContext context)
     {
         if (!context.performed) return;
@@ -61,6 +65,12 @@ public class MenuManager : MonoBehaviour
             if (selectedButton >= buttons.Length) selectedButton = 0;
             buttons[selectedButton].Select();
         }
+    }
+    
+    public void TogglePause()
+    {
+        Time.timeScale = Time.timeScale == 0 ? 1 : 0;
+        pauseMenu.SetActive(!pauseMenu.activeSelf);
     }
 }
 

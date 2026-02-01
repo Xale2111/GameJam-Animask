@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ae9921ebef4249d4cb92b9c4e831e3ae
+guid: 257945f71db865f4abd56713c3aac59c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4124240867030020018
-    second: Ruche_0
+      213: 1218268146595743105
+    second: ArrowLeft_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ruche_0
+      name: ArrowLeft_0
       rect:
         serializedVersion: 2
-        x: 469
-        y: 410
-        width: 143
-        height: 260
+        x: 235
+        y: 341
+        width: 611
+        height: 399
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2bf2977a73f3c3930800000000000000
-      internalID: 4124240867030020018
+      spriteID: 1854307bc6828e010800000000000000
+      internalID: 1218268146595743105
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Ruche_0: 4124240867030020018
+      ArrowLeft_0: 1218268146595743105
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

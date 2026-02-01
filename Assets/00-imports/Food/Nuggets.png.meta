@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: ae9921ebef4249d4cb92b9c4e831e3ae
+guid: 9b910b97513103344b2919ef79d70d71
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4124240867030020018
-    second: Ruche_0
+      213: 7715217546853692465
+    second: Nuggets_0
+  - first:
+      213: 7225292631809943516
+    second: Nuggets_1
+  - first:
+      213: 7442557889775326944
+    second: Nuggets_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +106,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ruche_0
+      name: Nuggets_0
       rect:
         serializedVersion: 2
-        x: 469
-        y: 410
-        width: 143
-        height: 260
+        x: 172
+        y: 342
+        width: 319
+        height: 211
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +121,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2bf2977a73f3c3930800000000000000
-      internalID: 4124240867030020018
+      spriteID: 134331d5b75f11b60800000000000000
+      internalID: 7715217546853692465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nuggets_1
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 504
+        width: 454
+        height: 303
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd7674d0e55654460800000000000000
+      internalID: 7225292631809943516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nuggets_2
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 273
+        width: 424
+        height: 350
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e6d658e7f6494760800000000000000
+      internalID: 7442557889775326944
       vertices: []
       indices: 
       edges: []
@@ -135,7 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Ruche_0: 4124240867030020018
+      Nuggets_0: 7715217546853692465
+      Nuggets_1: 7225292631809943516
+      Nuggets_2: 7442557889775326944
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

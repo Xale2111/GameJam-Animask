@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: ae9921ebef4249d4cb92b9c4e831e3ae
+guid: 4773ab16d4e062542837fc6bdfbe87fd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4124240867030020018
-    second: Ruche_0
+      213: 44406378072788428
+    second: CarottesObjet_0
+  - first:
+      213: 2064780423332773499
+    second: CarottesObjet_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ruche_0
+      name: CarottesObjet_0
       rect:
         serializedVersion: 2
-        x: 469
-        y: 410
-        width: 143
-        height: 260
+        x: 135
+        y: 19
+        width: 801
+        height: 1015
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +118,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2bf2977a73f3c3930800000000000000
-      internalID: 4124240867030020018
+      spriteID: ccd4ac69d53cd9000800000000000000
+      internalID: 44406378072788428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CarottesObjet_1
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 11
+        width: 16
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7e3ee7fad297ac10800000000000000
+      internalID: 2064780423332773499
       vertices: []
       indices: 
       edges: []
@@ -135,7 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Ruche_0: 4124240867030020018
+      CarottesObjet_0: 44406378072788428
+      CarottesObjet_1: 2064780423332773499
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
