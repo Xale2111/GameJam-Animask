@@ -43,42 +43,45 @@ public class HUDManager : MonoBehaviour
                 
                 _spawnDelay = 0;
                 _arrowCounter++;
+                arrowInputDetector.AddRemainingArrow();
                 GameObject newArrow = Instantiate(arrowPrefab, spawnPoint.transform);
                 int arrowIndex = Random.Range(0, arrows.Length);
                 newArrow.GetComponent<Image>().sprite = arrows[arrowIndex];
                 newArrow.GetComponent<Arrow>().SetDirection((ArrowDirection)arrowIndex);
             } 
-            if (_arrowCounter >= arrowToWin) OnEndGame();
+            if (arrowInputDetector.GetRemainingArrows()<=0 && _arrowCounter >= arrowToWin) OnEndGame();
+        }
+        else
+        {
+            ResetGame();
         }
 
     }
 
-    private void OnEndGame()
+    private void ResetGame()
     {
-        _inGame = false;
-        
-        if (arrowInputDetector.GetFailedCounter() > 0)
-        {
-            arrowInputDetector.ResetFailedCounter();
-        }
-        else
-        {
-            OnWinGame.Invoke();
-        }
-        
-        OnEndGameEvent.Invoke();    
+        arrowInputDetector.ResetFailedCounter();
+        _spawnDelay = 0;
         QTEPanel.SetActive(false);
         foreach (Transform child in spawnPoint)
         {
             Destroy(child.gameObject);
             
         }
-        ResetArrowCounter();
+        _arrowCounter = 0;
     }
 
-    public void ResetArrowCounter()
+    private void OnEndGame()
     {
-        _arrowCounter = 0;
+        _inGame = false;
+        
+        if (arrowInputDetector.GetFailedCounter() <= 0)
+        {
+            OnWinGame.Invoke();
+        }
+        
+        OnEndGameEvent.Invoke();    
+        
     }
     
     public void CancelGame()
@@ -90,11 +93,6 @@ public class HUDManager : MonoBehaviour
 
     public void StartGame()
     {
-        if (!_inGame)
-        {
-            ResetArrowCounter();
-        }
-        
         QTEPanel.SetActive(true);
         _inGame = true;
     }

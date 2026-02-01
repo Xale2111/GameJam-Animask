@@ -21,6 +21,8 @@ public class ArrowInputDetector : MonoBehaviour
 
     private int _failedCounter = 0;
 
+    private int _remainingArrows = 0;
+
     private void Update()
     {
         if (_canPress)
@@ -32,7 +34,7 @@ public class ArrowInputDetector : MonoBehaviour
                 _lastDirectionPressed = ArrowDirection.none;
                 _successed = true;
                 OnInputPress.Invoke();
-                Destroy(_arrowGO.gameObject);
+                DeleteArrow();
             }
             else if (_lastDirectionPressed != _directionToPress && _lastDirectionPressed != ArrowDirection.none)
             {
@@ -70,7 +72,23 @@ public class ArrowInputDetector : MonoBehaviour
     private void InputFailed()
     {
         _failedCounter++;
+        DeleteArrow();
+    }
+
+    private void DeleteArrow()
+    {
+        _remainingArrows--;
         Destroy(_arrowGO.gameObject);
+    }
+    
+    public int GetRemainingArrows()
+    {
+        return _remainingArrows;
+    }
+    
+    public void AddRemainingArrow()
+    {
+        _remainingArrows++;
     }
 
     public void OnLeftArrowPress(InputAction.CallbackContext context)
@@ -111,8 +129,8 @@ public class ArrowInputDetector : MonoBehaviour
         return _failedCounter;
     }
 
-    public int ResetFailedCounter()
+    public void ResetFailedCounter()
     {
-        return _failedCounter = 0;
+        _failedCounter = 0;
     }
 }
