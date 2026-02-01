@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float globalDelayAfterCircleOff = 0.10f;
 
     private bool _eyesClosed;
+    private bool _canCloseEyes;
     private Coroutine _sequence;
     private bool _isTransitionRunning;
     private bool _isParticleSystemRunning;
@@ -149,6 +150,7 @@ public class GameManager : MonoBehaviour
     
     public void OnToggleEyes(InputAction.CallbackContext context)
     {
+        if (!_canCloseEyes) return;
         if (!context.performed)
         {
             return;
@@ -282,6 +284,12 @@ public class GameManager : MonoBehaviour
         _eyesClosed = !_eyesClosed;
         StartSequence(_eyesClosed ? CloseEyesRoutine() : OpenEyesRoutine());
     }
+
+    public void SetCanCloseEyes(bool value)
+    {
+        _canCloseEyes = value;
+    }
+    
 
     public void SetHeldItemID(int ID)
     {

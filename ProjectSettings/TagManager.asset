@@ -13,6 +13,7 @@ TagManager:
   - Horse
   - Shark
   - Spino
+  - CenterArea
   layers:
   - Default
   - TransparentFX

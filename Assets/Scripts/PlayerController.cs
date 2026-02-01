@@ -93,6 +93,12 @@ public class PlayerController : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.CompareTag("CenterArea"))
+        {
+            gameManager.SetCanCloseEyes(false);
+            gameManager.SetIsGainingFear(false);
+        }
+        
         if (other.CompareTag("FoodItem"))
         {
             _canPickUp = true;
@@ -162,6 +168,12 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
+        if (other.CompareTag("CenterArea"))
+        {
+            gameManager.SetCanCloseEyes(true);
+            gameManager.SetIsGainingFear(true);
+        }
+        
         if (other.CompareTag("FoodItem"))
         {
             _canPickUp = false;
