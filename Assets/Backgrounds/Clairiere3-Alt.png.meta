@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 74281587316a6b24da3fd591a3dd6fb3
+guid: 70cc6e5454abf604bb5e6133f6a45c88
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2969657641155453205
-    second: ClairiereFond_0
+      213: -5018657180917655006
+    second: Clairiere3-Alt_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ClairiereFond_0
+      name: Clairiere3-Alt_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 1920
-        height: 1080
+        height: 325
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bee976afb18a9c6d0800000000000000
-      internalID: -2969657641155453205
+      spriteID: 22a90f942e52a5ab0800000000000000
+      internalID: -5018657180917655006
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ClairiereFond_0: -2969657641155453205
+      Clairiere3-Alt_0: -5018657180917655006
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
