@@ -4,6 +4,10 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.Rendering.Universal;
 
+
+public enum FoodType{Berry, Honey, Carrot, Fish, Nuggie}
+public enum AnimalType{Deer, Bear, Horse, Shark, Spino}
+
 public class GameManager : MonoBehaviour
 {
     [Header("Player")] 
@@ -21,7 +25,7 @@ public class GameManager : MonoBehaviour
     private float _currentFear = 0.0f;
     public bool isGainingFear = false;
     
-    //Closing/Opening Eyes
+    // Closing/Opening Eyes
     [Header("Closing Eyes Mechanic")]
     [SerializeField] private ParticleSystem sparkleParticles;
     [SerializeField] private Light2D globalLight;   // Global Light 2D
@@ -43,6 +47,12 @@ public class GameManager : MonoBehaviour
     private Coroutine _sequence;
     private bool _isTransitionRunning;
     private bool _isParticleSystemRunning;
+    
+    // Animals & Progress
+    [Header("Animals & Progress")]
+    private int _currentAnimalID;
+    [SerializeField] private int _heldItemID = -1;
+    [SerializeField] private bool _hasItem;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -271,5 +281,30 @@ public class GameManager : MonoBehaviour
         ToggleParticleSystem();
         _eyesClosed = !_eyesClosed;
         StartSequence(_eyesClosed ? CloseEyesRoutine() : OpenEyesRoutine());
+    }
+
+    public void SetHeldItemID(int ID)
+    {
+        _heldItemID = ID;
+    }
+
+    public int GetHeldItemID()
+    {
+        return _heldItemID;
+    }
+    
+    public void SetHasItem(bool value)
+    {
+        _hasItem = value;
+    }
+
+    public bool GetHasItem()
+    {
+        return _hasItem;
+    }
+
+    public void PlayEnding()
+    {
+        //TODO Ending???
     }
 }

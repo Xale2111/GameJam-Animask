@@ -554,6 +554,8 @@ MonoBehaviour:
   fadeBackToNormalTime: 0.25
   circleDelayAfterBlack: 0.1
   globalDelayAfterCircleOff: 0.1
+  _heldItemID: -1
+  _hasItem: 0
 --- !u!4 &372648148
 Transform:
   m_ObjectHideFlags: 0
@@ -672,7 +674,7 @@ GameObject:
   - component: {fileID: 464182292}
   m_Layer: 0
   m_Name: Animal
-  m_TagString: Untagged
+  m_TagString: Deer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1734,7 +1736,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ParallaxManager
   mainCamera: {fileID: 0}
-  parallaxSpeed: 0.5
+  parallaxSpeed: 0
   isFixed: 0
 --- !u!212 &923139323
 SpriteRenderer:
@@ -8154,6 +8156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   speed: 10
   gameManager: {fileID: 372648147}
+  foodManager: {fileID: 1915137332}
 --- !u!50 &1827520145
 Rigidbody2D:
   serializedVersion: 5
@@ -8278,7 +8281,19 @@ MonoBehaviour:
     m_ActionId: 351f2ccd-1f9f-44bf-9bec-d62ac5c5f408
     m_ActionName: 'Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1827520144}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnPickUpItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 852140f2-7766-474d-8707-702459ba45f3
     m_ActionName: 'Player/Interact[/Keyboard/e]'
   - m_PersistentCalls:
@@ -8906,6 +8921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf41f7e96de4ae442bf43d0d7441b4a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodManager
+  gameManager: {fileID: 372648147}
   foodGamePrefabs:
   - {fileID: 563561152}
   - {fileID: 1059634050}
@@ -8919,7 +8935,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 6b0ac0ba3f3459c42af7ff42d952bfc0, type: 3}
   - {fileID: 21300000, guid: dbfbf95e21184da42ba74fb84383b1b3, type: 3}
   foodObjectPrefab: {fileID: 7084815269445057170, guid: 0a2d43f30bf620d4198a67fc6f45ddb9, type: 3}
-  spawnUpForce: 3
+  spawnUpForce: 6
   randomRotationRange: 15
   activate: 0
 --- !u!4 &1915137333

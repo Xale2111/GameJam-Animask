@@ -2,16 +2,15 @@ using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public enum FoodType{Berry, Honey, Carrot, Fish, Nuggie}
 public class FoodManager : MonoBehaviour
 {
-    
+    [SerializeField] private GameManager gameManager;
     [SerializeField] private FoodGame[] foodGamePrefabs;
     [SerializeField] private Sprite[] foodSprites;
     
     [SerializeField] private GameObject foodObjectPrefab;
     
-    [SerializeField] private float spawnUpForce = 3f;
+    [SerializeField] private float spawnUpForce = 6f;
     [SerializeField] private float randomRotationRange = 15f;
 
     [SerializeField] private bool activate;
@@ -24,11 +23,24 @@ public class FoodManager : MonoBehaviour
         foodGamePrefabs[_currentFoodIndex].Activate();
     }
 
-    public void NextFood()
+    public void GiveFood()
     {
+        
+    }
+
+    private void NextFood()
+    {
+        gameManager.SetHeldItemID(_currentFoodIndex);
         foodGamePrefabs[_currentFoodIndex].Deactivate();
         _currentFoodIndex++;
-        foodGamePrefabs[_currentFoodIndex].Activate();
+    }
+
+    public void ActivateNextSpot()
+    {
+        if (_currentFoodIndex < foodGamePrefabs.Length)
+        {
+            foodGamePrefabs[_currentFoodIndex].Activate();
+        }
     }
 
     public void CreateFood(int foodType)
@@ -46,8 +58,6 @@ public class FoodManager : MonoBehaviour
 
         GameObject newFood = Instantiate(foodObjectPrefab, foodGamePrefabs[idx].transform.position, rotation);
         newFood.GetComponent<SpriteRenderer>().sprite = foodSprites[idx];
-        _currentFoodIndex = _currentFoodIndex + 1;
-        
         
         Rigidbody2D rb = newFood.GetComponent<Rigidbody2D>();
 
@@ -55,5 +65,12 @@ public class FoodManager : MonoBehaviour
         {
             rb.AddForce(Vector2.up * spawnUpForce, ForceMode2D.Impulse);
         }
+        
+        NextFood();
+    }
+
+    public int GetCurrentFoodIndex()
+    {
+        return _currentFoodIndex;
     }
 }

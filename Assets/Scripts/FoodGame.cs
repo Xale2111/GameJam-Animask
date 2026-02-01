@@ -19,7 +19,6 @@ public class FoodGame : MonoBehaviour
     {
         if (_playerInside)
         {
-            Debug.Log("Player in area");
             if (gameManager.GetIsEyesClosed())
             {
                 hudManager.StartGame();
@@ -48,13 +47,11 @@ public class FoodGame : MonoBehaviour
     public void PlayerEntered()
     {
         _playerInside = true;
-        Debug.Log("Player Entered Game Area");
     }
 
     public void PlayerExited()
     {
         _playerInside = false;
-        Debug.Log("Player Exited Game Area");
     }
     
     public GameManager GetGameManager()
