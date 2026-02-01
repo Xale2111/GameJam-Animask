@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ParallaxManager : MonoBehaviour
 {
-    private float _startPos, length;
+    private float _startPos, _length;
     public GameObject cam;
     [Range(0.0f, 1.0f)]
     public float parallaxSpeed; //relative to camera, 0 means move with camera, 1 means no movement
@@ -12,7 +12,11 @@ public class ParallaxManager : MonoBehaviour
     void Start()
     {
         _startPos = transform.position.x;
-        length = GetComponent<SpriteRenderer>().bounds.size.x;
+        _length = 0.0f;
+        if (!isFixed)
+        {
+            _length = GetComponent<SpriteRenderer>().bounds.size.x;
+        }
     }
 
     // Update is called once per frame
@@ -25,13 +29,13 @@ public class ParallaxManager : MonoBehaviour
 
         if (!isFixed)
         {
-            if (movement > _startPos + length)
+            if (movement > _startPos + _length)
             {
-                _startPos += length;
+                _startPos += _length;
             }
-            else if (movement < _startPos - length)
+            else if (movement < _startPos - _length)
             {
-                _startPos -= length;
+                _startPos -= _length;
             }
         }
     }

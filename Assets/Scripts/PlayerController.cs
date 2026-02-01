@@ -7,7 +7,6 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speed = 10f;
     [SerializeField] private GameManager gameManager;
-    [SerializeField] private HUDManager hudManager;
     
     
     private Rigidbody2D _rb;
@@ -67,20 +66,4 @@ public class PlayerController : MonoBehaviour
     {
         _canMove = canMove;
     }
-
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.CompareTag("Food"))
-        {
-            if (gameManager.GetIsEyesClosed())
-            {
-                hudManager.StartGame();
-            }
-            else
-            {
-                hudManager.CancelGame();
-            }
-        }
-    }
-
 }

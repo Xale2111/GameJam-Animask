@@ -2,45 +2,51 @@ using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
+public enum FoodType{Berry, Honey, Carrot, Fish, Nuggie}
 public class FoodManager : MonoBehaviour
 {
     
-    
-    [SerializeField] private GameObject[] foodGamePrefab;
-    [SerializeField] private GameObject foodObjectPrefab;
+    [SerializeField] private FoodGame[] foodGamePrefabs;
     [SerializeField] private Sprite[] foodSprites;
-    private int currentFoodIndex = 0;
+    
+    [SerializeField] private GameObject foodObjectPrefab;
     
     [SerializeField] private float spawnUpForce = 3f;
+    [SerializeField] private float randomRotationRange = 15f;
 
     [SerializeField] private bool activate;
     
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private int _currentFoodIndex = 0;
+
+    private void Start()
     {
+        foodGamePrefabs[_currentFoodIndex].Activate();
+    }
+
+    public void NextFood()
+    {
+        foodGamePrefabs[_currentFoodIndex].Deactivate();
+        _currentFoodIndex++;
+        foodGamePrefabs[_currentFoodIndex].Activate();
+    }
+
+    public void CreateFood(int foodType)
+    {
+        int idx = (int)foodType;
         
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (activate)
+        if (idx >= foodGamePrefabs.Length || foodGamePrefabs[idx] == null)
         {
-            CreateFood();
-            activate = false;
+            Debug.LogError("Missing foodgame.");
+            return;
         }
-    }
-
-    void CreateFood()
-    {
-        float random = Random.Range(-15f, 15f);
-
+        
+        float random = Random.Range(-randomRotationRange, randomRotationRange);
         Quaternion rotation = Quaternion.Euler(0f, 0f, random);
 
-        GameObject newFood = Instantiate(foodObjectPrefab, foodGamePrefab[currentFoodIndex % foodGamePrefab.Length].transform.position, rotation);
-        newFood.GetComponent<SpriteRenderer>().sprite = foodSprites[currentFoodIndex % foodSprites.Length];
-        currentFoodIndex = currentFoodIndex + 1;
+        GameObject newFood = Instantiate(foodObjectPrefab, foodGamePrefabs[idx].transform.position, rotation);
+        newFood.GetComponent<SpriteRenderer>().sprite = foodSprites[idx];
+        _currentFoodIndex = _currentFoodIndex + 1;
         
         Rigidbody2D rb = newFood.GetComponent<Rigidbody2D>();
 
