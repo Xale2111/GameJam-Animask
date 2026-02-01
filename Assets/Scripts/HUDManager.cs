@@ -89,6 +89,7 @@ public class HUDManager : MonoBehaviour
     public void CancelGame()
     {
         QTEPanel.SetActive(false);
+        ResetGame();
         _inGame = false;
 
     }

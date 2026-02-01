@@ -7,12 +7,13 @@ public class FoodGame : MonoBehaviour
     [SerializeField] private HUDManager hudManager;
     [SerializeField] private GameObject gameplayRoot;
 
+    [SerializeField] private bool activeAtStart = false;
     private bool _playerInside = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        gameplayRoot.SetActive(false);
+        gameplayRoot.SetActive(activeAtStart);
     }
 
     private void Update()

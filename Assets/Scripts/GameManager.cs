@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 
 
 public enum FoodType{Berry, Honey, Carrot, Fish, Nuggie}
@@ -313,6 +314,6 @@ public class GameManager : MonoBehaviour
 
     public void PlayEnding()
     {
-        //TODO Ending???
+        SceneManager.LoadScene("Credits");
     }
 }
